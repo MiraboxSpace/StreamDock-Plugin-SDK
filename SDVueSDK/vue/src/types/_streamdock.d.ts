@@ -249,9 +249,9 @@ declare namespace StreamDock {
 
   // 插件触发事件
   type PluginMessage = {
-    // 设备连接 TODO: 参数未知
+    // 设备连接
     deviceDidConnect?(this: PluginMessage, data: EventPayload.deviceDidConnectDisconnect): void;
-    // 设备断开 TODO: 参数未知
+    // 设备断开
     deviceDidDisconnect?(this: PluginMessage, data: EventPayload.deviceDidConnectDisconnect): void;
     didReceiveGlobalSettings?(this: PluginMessage, data: EventPayload.didReceiveGlobalSettings): void;
     applicationDidLaunch?(this: PluginMessage, data: EventPayload.applicationDidLaunch): void;

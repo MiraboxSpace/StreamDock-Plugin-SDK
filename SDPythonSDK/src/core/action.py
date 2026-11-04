@@ -6,6 +6,9 @@ class Action:
         self.action = action
         self.context = context
         self.settings = settings
+        # SDKVersion 3: actual drawable pixel size, populated from event payloads.
+        self.width = None
+        self.height = None
         self.title = ""
         self.title_parameters = {}
         self._server = plugin.ws

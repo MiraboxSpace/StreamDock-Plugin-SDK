@@ -64,7 +64,7 @@
   "Category": "Python Time",
   "Description": "Time",
   "CodePath": "DemoPlugin.exe",
-  "SDKVersion": 1,
+  "SDKVersion": 3,
   "Author": "MiraBox",
   "URL": "https://mirabox.key123.vip/",
   "OS": [

@@ -21,6 +21,8 @@ declare namespace EventPayload {
     device: string;
     context: string;
     payload: {
+      width: number;
+      height: number;
       settings: {};
       coordinates: {
         column: number;
@@ -91,6 +93,24 @@ declare namespace EventPayload {
     }
   };
   // 按下|抬起|触摸
+  type keyDownUp = {
+    action: string;
+    event: string;
+    context: string;
+    device: string;
+    payload: {
+      width: number;
+      height: number;
+      settings: {};
+      coordinates: {
+        column: number;
+        row: number;
+      };
+      state: number;
+      userDesiredState: number;
+      isInMultiAction: boolean;
+    };
+  };
   type keyDownUpTouchTap = {
     action: string;
     event: string;
@@ -114,6 +134,8 @@ declare namespace EventPayload {
     context: string;
     device: string;
     payload: {
+      width: number;
+      height: number;
       settings: {};
       coordinates: {
         column: number;
@@ -130,6 +152,8 @@ declare namespace EventPayload {
     context: string;
     device: string;
     payload: {
+      width: number;
+      height: number;
       coordinates: {
         column: number;
         row: number;
@@ -273,8 +297,8 @@ declare namespace StreamDock {
   type ActionMessage = {
     ActionID?: string;
     didReceiveSettings?(this: ActionMessage, data: EventPayload.didReceiveSettings): void;
-    keyDown?(this: ActionMessage, data: EventPayload.keyDownUpTouchTap): void;
-    keyUp?(this: ActionMessage, data: EventPayload.keyDownUpTouchTap): void;
+    keyDown?(this: ActionMessage, data: EventPayload.keyDownUp): void;
+    keyUp?(this: ActionMessage, data: EventPayload.keyDownUp): void;
     touchTap?(this: ActionMessage, data: EventPayload.keyDownUpTouchTap): void;
     willAppear?(this: ActionMessage, data: EventPayload.willAppearDisappear): void;
     willDisappear?(this: ActionMessage, data: EventPayload.willAppearDisappear): void;

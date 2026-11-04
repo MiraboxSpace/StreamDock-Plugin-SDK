@@ -77,6 +77,20 @@ class Plugin:
         data = json.loads(message)
         event = data.get('event')
         Logger.info(event)
+        dimension_events = {
+            'didReceiveSettings', 'keyDown', 'keyUp',
+            'willAppear', 'willDisappear', 'titleParametersDidChange'
+        }
+        def update_dimensions(action):
+            payload = data.get('payload', {})
+            for dimension in ('width', 'height'):
+                if dimension in payload:
+                    setattr(action, dimension, payload[dimension])
+
+        if event in dimension_events:
+            action = self.actions.get(data.get('context'))
+            if action:
+                update_dimensions(action)
         if event == 'didReceiveGlobalSettings':
             self.global_settings = data.get('payload', {}).get('settings')
             for action in self.actions.values():
@@ -93,6 +107,7 @@ class Plugin:
                     self
                 )
                 if action:
+                    update_dimensions(action)
                     self.actions[context] = action
                 else:
                     Logger.error(f"Failed to create action for context: {context}")

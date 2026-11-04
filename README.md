@@ -37,7 +37,7 @@ This repository includes plugin development templates for:
 2. Clone the repository and install dependencies
 3. Develop your plugin following the template
 4. Test your plugin
-5. Publish to [Space Platform](https://space.key123.vip/)
+5. Publish to [Space Platform](https://space.mirabox.net/)
 
 ## 📚 Documentation
 
@@ -58,7 +58,7 @@ To quickly get started developing plugins using the templates in this repository
 
 ## 🎯 Plugin Publishing
 
-Completed plugins can be published to the [Space Platform](https://space.key123.vip/) to share your creation with more users.
+Completed plugins can be published to the [Space Platform](https://space.mirabox.net/) to share your creation with more users.
 
 ## 🤝 Contributing
 
@@ -76,11 +76,12 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📮 Contact Us
 
-- 📧 Email: service@key123.vip
+- 📧 Email: support@mirabox.net
 - 💡 Issues: [GitHub Issues](https://github.com/MiraboxSpace/StreamDock-Plugin-SDK/issues)
 - 🌐 Documentation: [https://sdk.key123.vip](https://sdk.key123.vip/en/)
-- 🏪 Plugin Market: [Space Platform](https://space.key123.vip/)
-- 💬 Discord: [Join our community](https://discord.gg/WvCkKRGavX)
+- 🏪 Plugin Market: [Space Platform](https://space.mirabox.net/)
+- 💬 Discord：[Join our community](https://discord.gg/WvCkKRGavX)
+- 🌐 MiraBox：[Get to know us](https://mirabox.net/)
 
 ---
 

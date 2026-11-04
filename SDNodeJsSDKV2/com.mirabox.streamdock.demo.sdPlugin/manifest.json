@@ -24,7 +24,7 @@
       "PropertyInspectorPath": "propertyInspector/demo/index.html"
     }
   ],
-  "SDKVersion": 1,
+  "SDKVersion": 3,
   "Author": "MiraBox",
   "Name": "demo",
   "Icon": "static/App-logo.png",

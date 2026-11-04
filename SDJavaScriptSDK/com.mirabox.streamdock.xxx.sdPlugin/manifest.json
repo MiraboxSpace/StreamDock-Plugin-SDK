@@ -22,7 +22,7 @@
       "PropertyInspectorPath": "propertyInspector/action1/index.html"
     }
   ],
-  "SDKVersion": 1,
+  "SDKVersion": 3,
   "Author": "MiraBox",
   "Name": "插件名称",
   "Icon": "static/CH.png",

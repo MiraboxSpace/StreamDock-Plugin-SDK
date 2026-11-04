@@ -37,7 +37,7 @@
 2. 克隆仓库并安装依赖
 3. 按照模板开发你的插件
 4. 测试你的插件
-5. 发布到 [Space 平台](https://space.key123.vip/)
+5. 发布到 [Space 平台](https://space.mirabox.net/)
 
 ## 📚 文档
 
@@ -58,7 +58,7 @@
 
 ## 🎯 插件发布
 
-开发完成的插件可以发布到 [Space 平台](https://space.key123.vip/)，与更多用户分享你的创作。
+开发完成的插件可以发布到 [Space 平台](https://space.mirabox.net/)，与更多用户分享你的创作。
 
 ## 🤝 贡献指南
 
@@ -76,11 +76,12 @@
 
 ## 📮 联系我们
 
-- 📧 邮箱：service@key123.vip
+- 📧 邮箱：support@mirabox.net
 - 💡 问题反馈：[GitHub Issues](https://github.com/MiraboxSpace/StreamDock-Plugin-SDK/issues)
 - 🌐 开发文档：[https://sdk.key123.vip](https://sdk.key123.vip)
-- 🏪 插件市场：[Space 平台](https://space.key123.vip/)
+- 🏪 插件市场：[Space 平台](https://space.mirabox.net/)
 - 💬 Discord：[加入我们的社区](https://discord.gg/WvCkKRGavX)
+- 🌐 MiraBox官网：[了解我们](https://mirabox.net/)
 
 ---
 

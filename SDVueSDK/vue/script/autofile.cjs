@@ -28,7 +28,7 @@ manifest.Description = i18n['en'].Description;
 manifest.CodePath = process.argv[2] === 'dev' ? '_.html' : 'index.html';
 
 // 版本固定生成
-manifest.SDKVersion = 2;
+manifest.SDKVersion = 3;
 manifest.Author = 'MiraBox';
 manifest.URL = 'http://video.hotspotek.com.cn/';
 manifest.OS = [

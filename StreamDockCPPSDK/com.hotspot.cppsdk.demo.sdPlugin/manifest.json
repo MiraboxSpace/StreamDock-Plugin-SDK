@@ -33,7 +33,7 @@
         "PropertyInspectorPath": "action2/index.html"
       }
     ],
-    "SDKVersion": 1,
+    "SDKVersion": 3,
     "Author": "Hotspot",
     "Category": "CPP Plugin Demo",
     "CategoryIcon": "images/icons/pluginIcon",

@@ -3,7 +3,7 @@
 <div align="center">
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-sdk.key123.vip-brightgreen.svg)](https://sdk.key123.vip)
+[![Documentation](https://img.shields.io/badge/docs-MiraBox_Wiki-brightgreen.svg)](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-7e4ad684-8540-4114-969c-eb9c9fa3e955?lang=zh-cn)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -33,6 +33,16 @@
 
 ## 🔨 快速开始
 
+### 国际化
+
+七套模板均支持 14 种语言：`de`、`el`、`en`、`es`、`fr`、`it`、`ja`、
+`ko`、`pl`、`pt`、`ru`、`tr`、`zh_CN`、`zh_HK`，包含插件/动作名称、
+提示文字和现有属性检查器标签。Vue 模板在 dev/build 时根据
+`src/manifest.cjs` 生成语言 JSON 文件，其他模板直接在插件目录中提供。
+修改动作 UUID 时，请同步修改语言文件中的对应键。
+
+### 开发步骤
+
 1. 选择你熟悉的编程语言模板
 2. 克隆仓库并安装依赖
 3. 按照模板开发你的插件
@@ -41,20 +51,18 @@
 
 ## 📚 文档
 
-访问我们的[官方开发文档](https://sdk.key123.vip/)获取：
+访问我们的[官方开发文档](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-7e4ad684-8540-4114-969c-eb9c9fa3e955?lang=zh-cn)获取：
 
 - 详细的SDK构建指南
 - API 参考文档
 - 常见问题解答
 
-访问[AI生成的文档](https://deepwiki.com/MiraboxSpace/StreamDock-Plugin-SDK)获取：
+## 🧩 开发 Skills
 
-- 详细的插件开发指南
-- 各语言模板的详细文档
-
-自行构建SDK模板推荐查看[官方开发文档](https://sdk.key123.vip/)
-
-快速上手使用本仓库的模板开发插件推荐查看[AI生成的文档](https://deepwiki.com/MiraboxSpace/StreamDock-Plugin-SDK)
+如需使用 AI 辅助开发插件，请使用独立的
+[StreamDock & Craft Plugin Builder 技能仓库](https://github.com/MiraboxSpace/StreamDock-Plugin-Builder)。
+其中包含两套开发技能：StreamDock 插件使用 `skills/streamdock-plugin-builder`，
+Craft 副屏组件使用 `skills/craft-plugin-builder`。SDK 协议仍以上方官方开发文档为准。
 
 ## 🎯 插件发布
 
@@ -78,7 +86,7 @@
 
 - 📧 邮箱：support@mirabox.net
 - 💡 问题反馈：[GitHub Issues](https://github.com/MiraboxSpace/StreamDock-Plugin-SDK/issues)
-- 🌐 开发文档：[https://sdk.key123.vip](https://sdk.key123.vip)
+- 🌐 开发文档：[StreamDock 插件开发指南](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-7e4ad684-8540-4114-969c-eb9c9fa3e955?lang=zh-cn)
 - 🏪 插件市场：[Space 平台](https://space.mirabox.net/)
 - 💬 Discord：[加入我们的社区](https://discord.gg/WvCkKRGavX)
 - 🌐 MiraBox官网：[了解我们](https://mirabox.net/)

@@ -1,0 +1,16 @@
+{
+  "Name": "狀態顯示",
+  "Description": "Stream Dock CPP SDK 示範",
+  "Category": "CPP 插件示例",
+  "com.hotspot.streamdockcppsdk.demo.myaction1": {
+    "Name": "狀態顯示操作 1",
+    "Tooltip": "顯示狀態 1"
+  },
+  "com.hotspot.streamdockcppsdk.demo.myaction2": {
+    "Name": "狀態顯示操作 2",
+    "Tooltip": "顯示狀態 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
+  }
+}

@@ -52,6 +52,6 @@ class Custom(Action):
         self.plugin.set_global_settings({"test": "tedasdasdst"})
         self.set_settings({"test": "dasdsada"})
         self.send_to_property_inspector({"test": "asdas"})
-        self.open_url("https://sdk.key123.vip/guide/get-started.html")
+        self.open_url("https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-7e4ad684-8540-4114-969c-eb9c9fa3e955")
         self.show_ok()
         Logger.info(f"[Custom] Key up event with payload: {payload}")

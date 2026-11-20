@@ -17,20 +17,67 @@ const Plugin = {
   Icon: 'images/icon.png',
   i18n: {
     en: {
-      Name: 'Keyboard Action',
-      Description: 'StreamDock Actions'
+      Name: 'Keyboard Actions',
+      Description: 'StreamDock action examples'
     },
     zh_CN: {
       Name: '键盘操作',
-      Description: 'StreamDock 的操作示例列表'
+      Description: 'StreamDock 操作示例'
+    },
+    zh_HK: {
+      Name: '鍵盤操作',
+      Description: 'StreamDock 操作示例'
+    },
+    de: {
+      Name: 'Tastaturaktionen',
+      Description: 'StreamDock-Aktionsbeispiele'
+    },
+    el: {
+      Name: 'Ενέργειες πληκτρολογίου',
+      Description: 'Παραδείγματα ενεργειών StreamDock'
+    },
+    es: {
+      Name: 'Acciones de teclado',
+      Description: 'Ejemplos de acciones de StreamDock'
+    },
+    fr: {
+      Name: 'Actions du clavier',
+      Description: 'Exemples d’actions StreamDock'
+    },
+    it: {
+      Name: 'Azioni della tastiera',
+      Description: 'Esempi di azioni StreamDock'
+    },
+    ja: {
+      Name: 'キーボード操作',
+      Description: 'StreamDock の操作例'
+    },
+    ko: {
+      Name: '키보드 동작',
+      Description: 'StreamDock 동작 예제'
+    },
+    pl: {
+      Name: 'Akcje klawiatury',
+      Description: 'Przykłady akcji StreamDock'
+    },
+    pt: {
+      Name: 'Ações do teclado',
+      Description: 'Exemplos de ações do StreamDock'
+    },
+    ru: {
+      Name: 'Действия клавиатуры',
+      Description: 'Примеры действий StreamDock'
+    },
+    tr: {
+      Name: 'Klavye eylemleri',
+      Description: 'StreamDock eylem örnekleri'
     }
   },
   Software: {
-    MinimumVersion: "6.5"
+    MinimumVersion: '6.5'
   },
   ApplicationsToMonitor: {
-    windows: [
-    ]
+    windows: []
   }
 };
 
@@ -41,12 +88,60 @@ const Actions = [
     Icon: 'images/icon.png',
     i18n: {
       en: {
-        Name: 'Action1',
+        Name: 'Action 1',
         Tooltip: 'This is an action'
       },
       zh_CN: {
-        Name: '操作一',
+        Name: '操作 1',
         Tooltip: '这是一个操作'
+      },
+      zh_HK: {
+        Name: '操作 1',
+        Tooltip: '這是一個操作'
+      },
+      de: {
+        Name: 'Aktion 1',
+        Tooltip: 'Dies ist eine Aktion'
+      },
+      el: {
+        Name: 'Ενέργεια 1',
+        Tooltip: 'Αυτή είναι μια ενέργεια'
+      },
+      es: {
+        Name: 'Acción 1',
+        Tooltip: 'Esta es una acción'
+      },
+      fr: {
+        Name: 'Action 1',
+        Tooltip: 'Ceci est une action'
+      },
+      it: {
+        Name: 'Azione 1',
+        Tooltip: 'Questa è un’azione'
+      },
+      ja: {
+        Name: 'アクション 1',
+        Tooltip: 'アクションの例です'
+      },
+      ko: {
+        Name: '동작 1',
+        Tooltip: '동작 예제입니다'
+      },
+      pl: {
+        Name: 'Akcja 1',
+        Tooltip: 'To jest akcja'
+      },
+      pt: {
+        Name: 'Ação 1',
+        Tooltip: 'Esta é uma ação'
+      },
+      ru: {
+        Name: 'Действие 1',
+        Tooltip: 'Это действие'
+      },
+      tr: {
+        Name: 'Eylem 1',
+        Tooltip: 'Bu bir eylemdir'
       }
     },
     state: 0,
@@ -65,4 +160,12 @@ const Actions = [
 ];
 
 // !! 请勿修改 !!
-module.exports = { PUUID: Plugin.UUID, ApplicationsToMonitor: Plugin.ApplicationsToMonitor, Software: Plugin.Software, Version: Plugin.version, CategoryIcon: Plugin.Icon, i18n: Plugin.i18n, Actions };
+module.exports = {
+  PUUID: Plugin.UUID,
+  ApplicationsToMonitor: Plugin.ApplicationsToMonitor,
+  Software: Plugin.Software,
+  Version: Plugin.version,
+  CategoryIcon: Plugin.Icon,
+  i18n: Plugin.i18n,
+  Actions
+};

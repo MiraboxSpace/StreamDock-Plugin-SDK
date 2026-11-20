@@ -1,0 +1,23 @@
+{
+  "Name": "示範",
+  "Description": "示範操作",
+  "Category": "示範",
+  "com.mirabox.streamdock.demo.demo": {
+    "Name": "示範",
+    "Tooltip": "示範操作"
+  },
+  "Localization": {
+    "Playback Device": "播放裝置",
+    "Loading...": "載入中...",
+    "Time Display": "時間顯示",
+    "Time Remaining": "剩餘時間",
+    "Time Elapsed": "已用時間",
+    "Show Title": "顯示標題",
+    "Display Format": "顯示格式",
+    "Title": "標題",
+    "Title - Artist": "標題 - 歌手",
+    "Artist": "歌手",
+    "Artist - Title": "歌手 - 標題",
+    "Logout": "登出"
+  }
+}

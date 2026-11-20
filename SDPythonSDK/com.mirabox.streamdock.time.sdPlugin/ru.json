@@ -1,0 +1,14 @@
+{
+  "Name": "Часы Python",
+  "Description": "Часы Python",
+  "Category": "Часы Python",
+  "com.mirabox.streamdock.time": {
+    "Name": "Время",
+    "Tooltip": "Время"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Настраиваемое",
+    "Tooltip": "Настраиваемое"
+  },
+  "Localization": {}
+}

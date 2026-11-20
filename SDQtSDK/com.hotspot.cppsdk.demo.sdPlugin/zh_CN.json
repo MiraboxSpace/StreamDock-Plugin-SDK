@@ -1,13 +1,16 @@
 {
-  "Description": "StreamDock CPP SDK的演示", 
-  "Name": "状态显示", 
-  "Category": "CPP插件示例",
+  "Name": "状态显示",
+  "Description": "Stream Dock CPP SDK 演示",
+  "Category": "CPP 插件示例",
   "com.hotspot.streamdockcppsdk.demo.myaction1": {
-    "Name": "状态显示动作1",
-    "Tooltip": "显示状态示例1"
+    "Name": "状态显示操作 1",
+    "Tooltip": "显示状态 1"
   },
   "com.hotspot.streamdockcppsdk.demo.myaction2": {
-    "Name": "状态显示动作2",
-    "Tooltip": "显示状态示例2"
+    "Name": "状态显示操作 2",
+    "Tooltip": "显示状态 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
   }
 }

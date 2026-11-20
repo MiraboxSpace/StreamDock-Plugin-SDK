@@ -1,0 +1,16 @@
+{
+  "Name": "Durum gösterimi",
+  "Description": "Stream Dock CPP SDK demosu",
+  "Category": "CPP eklenti demosu",
+  "com.hotspot.streamdockcppsdk.demo.myaction1": {
+    "Name": "Durum gösterimi eylemi 1",
+    "Tooltip": "Durumu göster 1"
+  },
+  "com.hotspot.streamdockcppsdk.demo.myaction2": {
+    "Name": "Durum gösterimi eylemi 2",
+    "Tooltip": "Durumu göster 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
+  }
+}

@@ -1,10 +1,14 @@
 {
-    "Name": "Python Time",
-    "Category": "Python Time",
-    "Description": "Python Time",
-    "com.mirabox.streamdock.time": {
-        "Name": "Python Time",
-        "Tooltip": "Python Time"
-    },
-    "Localization": {}
+  "Name": "Python 时钟",
+  "Description": "Python 时钟",
+  "Category": "Python 时钟",
+  "com.mirabox.streamdock.time": {
+    "Name": "时间",
+    "Tooltip": "时间"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "自定义",
+    "Tooltip": "自定义"
+  },
+  "Localization": {}
 }

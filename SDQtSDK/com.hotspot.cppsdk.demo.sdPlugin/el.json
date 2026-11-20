@@ -1,0 +1,16 @@
+{
+  "Name": "Εμφάνιση κατάστασης",
+  "Description": "Επίδειξη του Stream Dock CPP SDK",
+  "Category": "Επίδειξη πρόσθετου CPP",
+  "com.hotspot.streamdockcppsdk.demo.myaction1": {
+    "Name": "Ενέργεια εμφάνισης κατάστασης 1",
+    "Tooltip": "Εμφάνιση κατάστασης 1"
+  },
+  "com.hotspot.streamdockcppsdk.demo.myaction2": {
+    "Name": "Ενέργεια εμφάνισης κατάστασης 2",
+    "Tooltip": "Εμφάνιση κατάστασης 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "Horloge Python",
+  "Description": "Horloge Python",
+  "Category": "Horloge Python",
+  "com.mirabox.streamdock.time": {
+    "Name": "Heure",
+    "Tooltip": "Heure"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Personnalisé",
+    "Tooltip": "Personnalisé"
+  },
+  "Localization": {}
+}

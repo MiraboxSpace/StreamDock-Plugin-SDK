@@ -2,9 +2,7 @@
 
 For details, please see
 
-[https://sdk.key123.vip/guide/events-received.html](https://sdk.key123.vip/en/guide/events-received.html)
-
-[https://sdk.key123.vip/guide/events-sent.html](https://sdk.key123.vip/en/guide/events-sent.html)
+[Official StreamDock development guide](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en)
 
 ## Precautions
 
@@ -12,4 +10,4 @@ Windows: The software version needs to be `3.10.188.226` or above. Starting from
 
 Mac: `3.10.189.0313` is not built-in yet, and you need to wait for the next version
 
-[manifest#nodejs](https://sdk.key123.vip/en/guide/manifest.html#nodejs)
+[manifest#nodejs](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en)

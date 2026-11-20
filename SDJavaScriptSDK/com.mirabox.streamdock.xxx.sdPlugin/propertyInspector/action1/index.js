@@ -9,7 +9,7 @@
  * =======================================================================>
  */
 
-const $local = false, $back = false, $dom = {
+const $local = true, $back = false, $dom = {
     main: $('.sdpi-wrapper')
 };
 

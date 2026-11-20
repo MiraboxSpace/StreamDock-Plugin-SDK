@@ -1,0 +1,12 @@
+{
+  "Name": "Название плагина",
+  "Description": "Описание плагина",
+  "Category": "Название плагина",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Действие",
+    "Tooltip": "Описание действия"
+  },
+  "Localization": {
+    "模板": "Шаблон"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "Name": "Ρολόι Python",
+  "Description": "Ρολόι Python",
+  "Category": "Ρολόι Python",
+  "com.mirabox.streamdock.time": {
+    "Name": "Ώρα",
+    "Tooltip": "Ώρα"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Προσαρμοσμένο",
+    "Tooltip": "Προσαρμοσμένο"
+  },
+  "Localization": {}
+}

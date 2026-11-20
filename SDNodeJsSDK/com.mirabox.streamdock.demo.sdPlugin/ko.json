@@ -1,0 +1,12 @@
+{
+  "Name": "플러그인 이름",
+  "Description": "플러그인 설명",
+  "Category": "플러그인 이름",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "동작",
+    "Tooltip": "동작 설명"
+  },
+  "Localization": {
+    "模板": "템플릿"
+  }
+}

@@ -1,11 +1,23 @@
 {
-  "Name": "demo",
-  "Description": "demo",
-  "Category": "demo",
+  "Name": "데모",
+  "Description": "데모 동작",
+  "Category": "데모",
   "com.mirabox.streamdock.demo.demo": {
-    "Name": "",
-    "Tooltip": ""
+    "Name": "데모",
+    "Tooltip": "데모 동작"
   },
   "Localization": {
+    "Playback Device": "재생 장치",
+    "Loading...": "불러오는 중...",
+    "Time Display": "시간 표시",
+    "Time Remaining": "남은 시간",
+    "Time Elapsed": "경과 시간",
+    "Show Title": "제목 표시",
+    "Display Format": "표시 형식",
+    "Title": "제목",
+    "Title - Artist": "제목 - 아티스트",
+    "Artist": "아티스트",
+    "Artist - Title": "아티스트 - 제목",
+    "Logout": "로그아웃"
   }
 }

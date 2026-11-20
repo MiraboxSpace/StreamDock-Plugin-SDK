@@ -1,0 +1,12 @@
+{
+  "Name": "Όνομα πρόσθετου",
+  "Description": "Περιγραφή πρόσθετου",
+  "Category": "Όνομα πρόσθετου",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Ενέργεια",
+    "Tooltip": "Περιγραφή ενέργειας"
+  },
+  "Localization": {
+    "模板": "Πρότυπο"
+  }
+}

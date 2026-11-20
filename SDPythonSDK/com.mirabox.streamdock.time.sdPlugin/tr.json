@@ -1,0 +1,14 @@
+{
+  "Name": "Python saati",
+  "Description": "Python saati",
+  "Category": "Python saati",
+  "com.mirabox.streamdock.time": {
+    "Name": "Saat",
+    "Tooltip": "Saat"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Özel",
+    "Tooltip": "Özel"
+  },
+  "Localization": {}
+}

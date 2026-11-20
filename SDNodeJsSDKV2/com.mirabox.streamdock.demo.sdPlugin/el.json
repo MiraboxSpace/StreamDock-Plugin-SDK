@@ -1,0 +1,23 @@
+{
+  "Name": "Επίδειξη",
+  "Description": "Ενέργεια επίδειξης",
+  "Category": "Επίδειξη",
+  "com.mirabox.streamdock.demo.demo": {
+    "Name": "Επίδειξη",
+    "Tooltip": "Ενέργεια επίδειξης"
+  },
+  "Localization": {
+    "Playback Device": "Συσκευή αναπαραγωγής",
+    "Loading...": "Φόρτωση...",
+    "Time Display": "Εμφάνιση χρόνου",
+    "Time Remaining": "Χρόνος που απομένει",
+    "Time Elapsed": "Χρόνος που πέρασε",
+    "Show Title": "Εμφάνιση τίτλου",
+    "Display Format": "Μορφή εμφάνισης",
+    "Title": "Τίτλος",
+    "Title - Artist": "Τίτλος - Καλλιτέχνης",
+    "Artist": "Καλλιτέχνης",
+    "Artist - Title": "Καλλιτέχνης - Τίτλος",
+    "Logout": "Αποσύνδεση"
+  }
+}

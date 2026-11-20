@@ -1,0 +1,12 @@
+{
+  "Name": "Nombre del complemento",
+  "Description": "Descripción del complemento",
+  "Category": "Nombre del complemento",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Acción",
+    "Tooltip": "Descripción de la acción"
+  },
+  "Localization": {
+    "模板": "Plantilla"
+  }
+}

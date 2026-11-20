@@ -1,10 +1,10 @@
 {
-  "Name": "demo",
-  "Description": "demo",
-  "Category": "demo",
+  "Name": "Demo",
+  "Description": "Demo operation",
+  "Category": "Demo",
   "com.mirabox.streamdock.demo.demo": {
-    "Name": "",
-    "Tooltip": ""
+    "Name": "Demo",
+    "Tooltip": "Demo operation"
   },
   "Localization": {
     "Playback Device": "Playback Device",

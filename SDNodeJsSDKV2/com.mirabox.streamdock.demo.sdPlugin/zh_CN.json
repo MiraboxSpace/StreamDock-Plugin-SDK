@@ -1,10 +1,10 @@
 {
-  "Name": "demo",
-  "Description": "demo",
-  "Category": "demo",
+  "Name": "演示",
+  "Description": "演示操作",
+  "Category": "演示",
   "com.mirabox.streamdock.demo.demo": {
-    "Name": "demo",
-    "Tooltip": "demo"
+    "Name": "演示",
+    "Tooltip": "演示操作"
   },
   "Localization": {
     "Playback Device": "播放设备",

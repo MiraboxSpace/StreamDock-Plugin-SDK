@@ -1,0 +1,12 @@
+{
+  "Name": "插件名稱",
+  "Description": "插件描述",
+  "Category": "插件名稱",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "操作",
+    "Tooltip": "操作說明"
+  },
+  "Localization": {
+    "模板": "模板"
+  }
+}

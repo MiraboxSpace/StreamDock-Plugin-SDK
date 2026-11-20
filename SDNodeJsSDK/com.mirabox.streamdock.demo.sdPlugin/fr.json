@@ -1,0 +1,12 @@
+{
+  "Name": "Nom du plugin",
+  "Description": "Description du plugin",
+  "Category": "Nom du plugin",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Action",
+    "Tooltip": "Description de l’action"
+  },
+  "Localization": {
+    "模板": "Modèle"
+  }
+}

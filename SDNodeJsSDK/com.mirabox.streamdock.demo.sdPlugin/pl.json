@@ -1,0 +1,12 @@
+{
+  "Name": "Nazwa wtyczki",
+  "Description": "Opis wtyczki",
+  "Category": "Nazwa wtyczki",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Akcja",
+    "Tooltip": "Opis akcji"
+  },
+  "Localization": {
+    "模板": "Szablon"
+  }
+}

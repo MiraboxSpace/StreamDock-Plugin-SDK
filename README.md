@@ -3,7 +3,7 @@
 <div align="center">
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-sdk.key123.vip-brightgreen.svg)](https://sdk.key123.vip/en/)
+[![Documentation](https://img.shields.io/badge/docs-MiraBox_Wiki-brightgreen.svg)](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
@@ -33,6 +33,17 @@ This repository includes plugin development templates for:
 
 ## 🔨 Quick Start
 
+### Localization
+
+All seven templates support 14 locales: `de`, `el`, `en`, `es`, `fr`, `it`,
+`ja`, `ko`, `pl`, `pt`, `ru`, `tr`, `zh_CN`, and `zh_HK`. Plugin/action
+names, tooltips and existing Property Inspector labels are translated.
+The Vue template generates its language JSON files from `src/manifest.cjs`
+during dev/build; the other templates include them in their plugin folders.
+Keep localization UUID keys synchronized with `manifest.json` when renaming actions.
+
+### Development steps
+
 1. Choose a template in your preferred programming language
 2. Clone the repository and install dependencies
 3. Develop your plugin following the template
@@ -41,20 +52,19 @@ This repository includes plugin development templates for:
 
 ## 📚 Documentation
 
-Visit our [Official Development Documentation](https://sdk.key123.vip/) to get:
+Visit our [Official Development Documentation](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en) to get:
 
 - Detailed SDK Building Guide
 - API Reference Documentation
 - FAQ
 
-Visit our [AI-Generated Documentation](https://deepwiki.com/MiraboxSpace/StreamDock-Plugin-SDK) to get:
+## 🧩 Development Skills
 
-- Detailed Plugin Development Guide
-- Detailed Documentation for Templates in Each Language
-
-For those building their own SDK templates, we recommend you check out the [Official Development Documentation](https://sdk.key123.vip/)
-
-To quickly get started developing plugins using the templates in this repository, we recommend you check out the [AI-Generated Documentation](https://deepwiki.com/MiraboxSpace/StreamDock-Plugin-SDK)
+For AI-assisted plugin development, use the separate
+[StreamDock & Craft Plugin Builder skills repository](https://github.com/MiraboxSpace/StreamDock-Plugin-Builder).
+It contains two dedicated skills. For StreamDock plugins, install
+`skills/streamdock-plugin-builder`; Craft widgets use `skills/craft-plugin-builder`.
+The SDK protocol documentation remains the official reference linked above.
 
 ## 🎯 Plugin Publishing
 
@@ -78,7 +88,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 - 📧 Email: support@mirabox.net
 - 💡 Issues: [GitHub Issues](https://github.com/MiraboxSpace/StreamDock-Plugin-SDK/issues)
-- 🌐 Documentation: [https://sdk.key123.vip](https://sdk.key123.vip/en/)
+- 🌐 Documentation: [StreamDock development guide](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en)
 - 🏪 Plugin Market: [Space Platform](https://space.mirabox.net/)
 - 💬 Discord：[Join our community](https://discord.gg/WvCkKRGavX)
 - 🌐 MiraBox：[Get to know us](https://mirabox.net/)

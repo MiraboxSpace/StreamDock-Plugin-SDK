@@ -1,0 +1,16 @@
+{
+  "Name": "Wyświetlanie stanu",
+  "Description": "Demo SDK CPP Stream Dock",
+  "Category": "Demo wtyczki CPP",
+  "com.hotspot.streamdockcppsdk.demo.myaction1": {
+    "Name": "Akcja wyświetlania stanu 1",
+    "Tooltip": "Wyświetl stan 1"
+  },
+  "com.hotspot.streamdockcppsdk.demo.myaction2": {
+    "Name": "Akcja wyświetlania stanu 2",
+    "Tooltip": "Wyświetl stan 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
+  }
+}

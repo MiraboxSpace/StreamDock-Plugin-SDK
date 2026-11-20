@@ -2,9 +2,7 @@
 
 Only common simple APIs are recorded. Please read the official documentation for more detailed properties.
 
-[https://sdk.key123.vip/guide/events-received.html](https://sdk.key123.vip/en/guide/events-received.html)
-
-[https://sdk.key123.vip/guide/events-sent.html](https://sdk.key123.vip/en/guide/events-sent.html)
+[Official StreamDock development guide](https://wiki.mirabox.net/wiki/wiki-e7gidk72/page/page-83dfae17-6163-4a98-a372-51a778babe55?lang=en)
 
 
 ## Property inspector HTML template

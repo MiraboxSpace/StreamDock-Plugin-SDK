@@ -1,0 +1,14 @@
+{
+  "Name": "Python 時計",
+  "Description": "Python 時計",
+  "Category": "Python 時計",
+  "com.mirabox.streamdock.time": {
+    "Name": "時刻",
+    "Tooltip": "時刻"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "カスタム",
+    "Tooltip": "カスタム"
+  },
+  "Localization": {}
+}

@@ -1,0 +1,12 @@
+{
+  "Name": "Eklenti adı",
+  "Description": "Eklenti açıklaması",
+  "Category": "Eklenti adı",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "Eylem",
+    "Tooltip": "Eylem açıklaması"
+  },
+  "Localization": {
+    "模板": "Şablon"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "Name": "Demo",
+  "Description": "Örnek eylem",
+  "Category": "Demo",
+  "com.mirabox.streamdock.demo.demo": {
+    "Name": "Demo",
+    "Tooltip": "Örnek eylem"
+  },
+  "Localization": {
+    "Playback Device": "Oynatma cihazı",
+    "Loading...": "Yükleniyor...",
+    "Time Display": "Zaman gösterimi",
+    "Time Remaining": "Kalan süre",
+    "Time Elapsed": "Geçen süre",
+    "Show Title": "Başlığı göster",
+    "Display Format": "Görüntüleme biçimi",
+    "Title": "Başlık",
+    "Title - Artist": "Başlık - Sanatçı",
+    "Artist": "Sanatçı",
+    "Artist - Title": "Sanatçı - Başlık",
+    "Logout": "Çıkış yap"
+  }
+}

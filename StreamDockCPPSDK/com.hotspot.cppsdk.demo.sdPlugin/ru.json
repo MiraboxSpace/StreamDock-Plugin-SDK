@@ -1,0 +1,16 @@
+{
+  "Name": "Отображение состояния",
+  "Description": "Демонстрация Stream Dock CPP SDK",
+  "Category": "Демонстрация плагина CPP",
+  "com.hotspot.streamdockcppsdk.demo.myaction1": {
+    "Name": "Действие отображения состояния 1",
+    "Tooltip": "Показать состояние 1"
+  },
+  "com.hotspot.streamdockcppsdk.demo.myaction2": {
+    "Name": "Действие отображения состояния 2",
+    "Tooltip": "Показать состояние 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
+  }
+}

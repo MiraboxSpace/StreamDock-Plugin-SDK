@@ -1,0 +1,12 @@
+{
+  "Name": "プラグイン名",
+  "Description": "プラグインの説明",
+  "Category": "プラグイン名",
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "アクション",
+    "Tooltip": "アクションの説明"
+  },
+  "Localization": {
+    "模板": "テンプレート"
+  }
+}

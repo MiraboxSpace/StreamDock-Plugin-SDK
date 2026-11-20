@@ -1,0 +1,14 @@
+{
+  "Name": "Zegar Python",
+  "Description": "Zegar Python",
+  "Category": "Zegar Python",
+  "com.mirabox.streamdock.time": {
+    "Name": "Czas",
+    "Tooltip": "Czas"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Niestandardowe",
+    "Tooltip": "Niestandardowe"
+  },
+  "Localization": {}
+}

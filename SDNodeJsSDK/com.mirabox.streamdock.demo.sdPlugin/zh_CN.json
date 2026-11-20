@@ -1,11 +1,13 @@
 {
   "Name": "插件名称",
   "Description": "插件描述",
-  "com.hotspot.streamdock.xxx.action1": {
-    "Name": "行动名称",
-    "Tooltip": "行动说明"
-  },
   "Category": "插件名称",
-  "Localization": {}
+  "com.hotspot.streamdock.demo.action1": {
+    "Name": "操作",
+    "Tooltip": "操作说明"
+  },
+  "Localization": {
+    "模板": "模板"
+  }
 }
 

@@ -1,0 +1,14 @@
+{
+  "Name": "Python-Uhr",
+  "Description": "Python-Uhr",
+  "Category": "Python-Uhr",
+  "com.mirabox.streamdock.time": {
+    "Name": "Uhrzeit",
+    "Tooltip": "Uhrzeit"
+  },
+  "com.mirabox.streamdock.custom": {
+    "Name": "Benutzerdefiniert",
+    "Tooltip": "Benutzerdefiniert"
+  },
+  "Localization": {}
+}

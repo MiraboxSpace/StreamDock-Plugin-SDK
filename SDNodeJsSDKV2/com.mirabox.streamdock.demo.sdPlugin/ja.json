@@ -1,11 +1,23 @@
 {
-  "Name": "demo",
-  "Description": "demo",
-  "Category": "demo",
+  "Name": "デモ",
+  "Description": "デモアクション",
+  "Category": "デモ",
   "com.mirabox.streamdock.demo.demo": {
-    "Name": "",
-    "Tooltip": ""
+    "Name": "デモ",
+    "Tooltip": "デモアクション"
   },
   "Localization": {
+    "Playback Device": "再生デバイス",
+    "Loading...": "読み込み中...",
+    "Time Display": "時間表示",
+    "Time Remaining": "残り時間",
+    "Time Elapsed": "経過時間",
+    "Show Title": "タイトルを表示",
+    "Display Format": "表示形式",
+    "Title": "タイトル",
+    "Title - Artist": "タイトル - アーティスト",
+    "Artist": "アーティスト",
+    "Artist - Title": "アーティスト - タイトル",
+    "Logout": "ログアウト"
   }
 }

@@ -1,13 +1,16 @@
 {
-  "Description": "Demo for Stream Dock CPP SDK", 
-  "Name": "State Display", 
-  "Category": "CPP Plugin Demo",
+  "Name": "Statusanzeige",
+  "Description": "Demo für das Stream Dock CPP SDK",
+  "Category": "CPP-Plugin-Demo",
   "com.hotspot.streamdockcppsdk.demo.myaction1": {
-    "Name": "State Display Action1",
-    "Tooltip": "Display status1"
+    "Name": "Statusanzeige-Aktion 1",
+    "Tooltip": "Status anzeigen 1"
   },
   "com.hotspot.streamdockcppsdk.demo.myaction2": {
-    "Name": "State Display Action2",
-    "Tooltip": "Display status2"
+    "Name": "Statusanzeige-Aktion 2",
+    "Tooltip": "Status anzeigen 2"
+  },
+  "Localization": {
+    "xxx": "xxx"
   }
 }

@@ -1,11 +1,23 @@
 {
-  "Name": "demo",
-  "Description": "demo",
-  "Category": "demo",
+  "Name": "Demostración",
+  "Description": "Acción de demostración",
+  "Category": "Demostración",
   "com.mirabox.streamdock.demo.demo": {
-    "Name": "",
-    "Tooltip": ""
+    "Name": "Demostración",
+    "Tooltip": "Acción de demostración"
   },
   "Localization": {
+    "Playback Device": "Dispositivo de reproducción",
+    "Loading...": "Cargando...",
+    "Time Display": "Visualización del tiempo",
+    "Time Remaining": "Tiempo restante",
+    "Time Elapsed": "Tiempo transcurrido",
+    "Show Title": "Mostrar título",
+    "Display Format": "Formato de visualización",
+    "Title": "Título",
+    "Title - Artist": "Título - Artista",
+    "Artist": "Artista",
+    "Artist - Title": "Artista - Título",
+    "Logout": "Cerrar sesión"
   }
 }

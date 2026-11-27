@@ -79,7 +79,8 @@ class Plugin:
         Logger.info(event)
         dimension_events = {
             'didReceiveSettings', 'keyDown', 'keyUp',
-            'willAppear', 'willDisappear', 'titleParametersDidChange'
+            'willAppear', 'willDisappear', 'titleParametersDidChange',
+            'touchTap', 'touchEvent'
         }
         def update_dimensions(action):
             payload = data.get('payload', {})
@@ -111,13 +112,24 @@ class Plugin:
                     self.actions[context] = action
                 else:
                     Logger.error(f"Failed to create action for context: {context}")
+        elif event == 'deleteAction':
+            context = data.get('context')
+            action = self.actions.get(context)
+            try:
+                if action:
+                    action.on_delete_action(data)
+                self.on_delete_action(data)
+            finally:
+                self.actions.pop(context, None)
+            return
         elif event == 'willDisappear':
             context = data.get('context')
             if context in self.actions:
                 action = self.actions[context]
                 if hasattr(action, 'on_will_disappear'):
                     action.on_will_disappear()
-                del self.actions[context]
+                if not action.keep_alive_when_hidden:
+                    del self.actions[context]
         elif event == 'didReceiveSettings':
             context = data.get('context')
             if context in self.actions:
@@ -143,7 +155,9 @@ class Plugin:
             'keyUp': 'on_key_up',
             'dialDown': 'on_dial_down',
             'dialUp': 'on_dial_up',
-            'dialRotate': 'on_dial_rotate'
+            'dialRotate': 'on_dial_rotate',
+            'touchTap': 'on_touch_tap',
+            'touchEvent': 'on_touch_event'
         }
         
         if event in context_events:
@@ -186,6 +200,18 @@ class Plugin:
                 if hasattr(action, 'on_send_to_plugin'):
                     action.on_send_to_plugin(data.get('payload', {}))
     
+    def on_delete_action(self, data: Dict[str, Any]):
+        """Override to clean up by context even after an instance was hidden."""
+        pass
+
+    def switch_to_profile(self, device: str, profile: str = '', page: Optional[int] = None):
+        """Use the exact manifest profile name; page 1 is the first page."""
+        payload = {'profile': profile}
+        if page is not None:
+            payload['page'] = page
+        self.ws.send(json.dumps({'event': 'switchToProfile', 'context': self.plugin_uuid,
+                                 'device': device, 'payload': payload}))
+
     def set_global_settings(self, payload: Any):
         """更新插件的全局设置
         

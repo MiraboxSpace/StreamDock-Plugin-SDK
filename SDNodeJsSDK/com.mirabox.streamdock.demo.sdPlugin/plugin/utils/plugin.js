@@ -36,6 +36,30 @@ class Plugins {
         });
         Plugins.instance = this;
     }
+
+    // Protocol commands; profile page numbers start at 1.
+    switchToProfile(device, profile = '', page) {
+        this.ws.send(JSON.stringify({ event: 'switchToProfile', context: process.argv[3], device, payload: { profile, ...(page === undefined ? {} : { page }) } }));
+    }
+    triggerKey(context, keyList) {
+        this.ws.send(JSON.stringify({ event: 'triggerKey', context, payload: { keyList } }));
+    }
+    logMessage(message) {
+        this.ws.send(JSON.stringify({ event: 'logMessage', payload: { message } }));
+    }
+    setGlobalSettings(payload) {
+        this.ws.send(JSON.stringify({ event: 'setGlobalSettings', context: process.argv[3], payload }));
+    }
+    getGlobalSettings() {
+        this.ws.send(JSON.stringify({ event: 'getGlobalSettings', context: process.argv[3] }));
+    }
+    showOk(context) {
+        this.ws.send(JSON.stringify({ event: 'showOk', context }));
+    }
+    showAlert(context) {
+        this.ws.send(JSON.stringify({ event: 'showAlert', context }));
+    }
+
     // 设置标题
     setTitle(context, str, row = 0, num = 6) {
         let newStr = '';

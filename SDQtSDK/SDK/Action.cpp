@@ -99,3 +99,17 @@ void Action::SendToPropertyInspector(const QJsonObject &inPayload)
 {
     GetConnectionManager()->SendToPropertyInspector(mAction, mContext, inPayload);
 }
+
+void Action::TouchTap(const QJsonObject &payload) { }
+void Action::TouchEvent(const QJsonObject &payload) { }
+void Action::DeleteAction(const QJsonObject &payload) { }
+void Action::TitleParametersDidChange(const QJsonObject &payload) { }
+void Action::PropertyInspectorDidAppear(const QJsonObject &payload) { }
+void Action::PropertyInspectorDidDisappear(const QJsonObject &payload) { }
+
+void Action::TriggerKey(const QJsonArray &keyList) {
+    GetConnectionManager()->TriggerKey(mContext, keyList);
+}
+void Action::OpenUrl(const QString &url) {
+    GetConnectionManager()->OpenUrl(url);
+}

@@ -1,3 +1,4 @@
+#include <map>
 #ifndef PLUGIN_H
 #define PLUGIN_H
 
@@ -21,9 +22,24 @@ protected:
      */
     virtual bool RemoveAction(const QString &action, const QString &context) = 0;
 
+    // Lookup without construction; override together with GetOrCreateAction.
+    virtual Action *FindAction(const QString &action, const QString &context) {
+        auto it = mEventActions.find(context);
+        return it == mEventActions.end() ? nullptr : it->second;
+    }
+    Action *EventAction(const QString &action, const QString &context);
+    std::map<QString, Action *> mEventActions;
+
 public:
     Plugin();
     virtual ~Plugin();
+
+    void TouchTapForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
+    void TouchEventForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
+    void DeleteActionForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
+    void TitleParametersDidChangeForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
+    void PropertyInspectorDidAppearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
+    void PropertyInspectorDidDisappearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID) override;
 
     virtual void KeyDownForAction(const QString &inAction,
                                   const QString &inContext,

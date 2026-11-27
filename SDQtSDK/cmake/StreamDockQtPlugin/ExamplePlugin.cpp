@@ -51,3 +51,9 @@ bool ExamplePlugin::RemoveAction(const QString &action, const QString &context)
     Logger::LogToServer(QString("Asked to get or create unknown action: ").append(action));
     return false;
 }
+
+Action *ExamplePlugin::FindAction(const QString &action, const QString &context) {
+    QMutexLocker locker(&mVisibleContextsMutex);
+    auto instance = mActions.value(context, nullptr);
+    return instance && instance->GetAction() == action ? instance : nullptr;
+}

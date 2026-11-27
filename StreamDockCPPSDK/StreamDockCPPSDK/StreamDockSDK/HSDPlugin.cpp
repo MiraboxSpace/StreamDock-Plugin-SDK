@@ -28,7 +28,7 @@ void HSDPlugin::KeyDownForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for keydown - " + inAction + " " + inContext);
@@ -43,7 +43,7 @@ void HSDPlugin::KeyUpForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for keyup - " + inAction + " " + inContext);
@@ -58,7 +58,7 @@ void HSDPlugin::DialDownForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for dialPress - " + inAction + " " + inContext);
@@ -73,7 +73,7 @@ void HSDPlugin::DialUpForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for dialPress - " + inAction + " " + inContext);
@@ -88,7 +88,7 @@ void HSDPlugin::DialRotateForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for dialRotate - " + inAction + " " + inContext);
@@ -112,7 +112,7 @@ void HSDPlugin::WillAppearForAction(
     const json &inPayload,
     const std::string &inDeviceID)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for WillAppear - " + inAction + " " + inContext);
@@ -127,7 +127,7 @@ void HSDPlugin::WillDisappearForAction(
     const json& inPayload,
     const std::string& inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = FindAction(inAction, inContext);
     if (!action)
     {
         HSDLogger::LogMessage("No action for WillDisAppear - " + inAction + " " + inContext);
@@ -142,7 +142,7 @@ void HSDPlugin::SendToPlugin(
     const json &inPayload,
     const std::string &inDevice)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("Received plugin request for unknown action " + inAction + " " + inContext);
@@ -157,11 +157,50 @@ void HSDPlugin::DidReceiveSettings(
     const json &inPayload,
     const std::string &inDevice)
 {
-  auto action = GetOrCreateAction(inAction, inContext);
+  auto action = EventAction(inAction, inContext);
   if (!action)
   {
     HSDLogger::LogMessage("No action for DidReceiveSettings: " + inAction + " " + inContext);
     return;
   }
   action->DidReceiveSettings(inPayload);
+}
+
+void HSDPlugin::TouchTapForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TouchTap(inPayload);
+}
+void HSDPlugin::TouchEventForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TouchEvent(inPayload);
+}
+void HSDPlugin::DeleteActionForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = FindAction(inAction, inContext);
+    if (action) action->DeleteAction(inPayload);
+    mEventActions.erase(inContext);
+    RemoveAction(inAction, inContext);
+}
+void HSDPlugin::TitleParametersDidChangeForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TitleParametersDidChange(inPayload);
+}
+void HSDPlugin::PropertyInspectorDidAppearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->PropertyInspectorDidAppear(inPayload);
+}
+void HSDPlugin::PropertyInspectorDidDisappearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->PropertyInspectorDidDisappear(inPayload);
+}
+
+std::shared_ptr<HSDAction> HSDPlugin::EventAction(const std::string &action, const std::string &context) {
+    auto instance = GetOrCreateAction(action, context);
+    if (instance) mEventActions[context] = instance;
+    return instance;
 }

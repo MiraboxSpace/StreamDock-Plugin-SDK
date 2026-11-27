@@ -9,6 +9,7 @@
 class ExamplePlugin : public Plugin
 {
 public:
+    Action *FindAction(const QString &action, const QString &context) override;
     ExamplePlugin();
     ~ExamplePlugin();
     virtual Action *GetOrCreateAction(const QString &action, const QString &context) override;

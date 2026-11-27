@@ -28,6 +28,15 @@ class HSDBasePlugin {
     mConnectionManager = inConnectionManager;
   }
 
+    virtual void TouchTapForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void TouchEventForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void DeleteActionForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void TitleParametersDidChangeForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void PropertyInspectorDidAppearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void PropertyInspectorDidDisappearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) { }
+    virtual void ApplicationDidLaunch(const nlohmann::json &inPayload) { }
+    virtual void ApplicationDidTerminate(const nlohmann::json &inPayload) { }
+
   virtual void DidReceiveGlobalSettings(const nlohmann::json& inPayload) {
   }
 

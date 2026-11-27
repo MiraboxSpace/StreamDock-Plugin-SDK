@@ -74,7 +74,23 @@ void HSDConnectionManager::OnMessage(websocketpp::connection_hdl, WebsocketClien
             json payload;
             NlohmannJSONUtils::GetObjectByName(receivedJson, kESDSDKCommonPayload, payload);
 
-            if (event == kESDSDKEventKeyDown) {
+            if (event == kESDSDKEventTouchTap) {
+                mPlugin->TouchTapForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventTouchEvent) {
+                mPlugin->TouchEventForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventDeleteAction) {
+                mPlugin->DeleteActionForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventTitleParametersDidChange) {
+                mPlugin->TitleParametersDidChangeForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventPropertyInspectorDidAppear) {
+                mPlugin->PropertyInspectorDidAppearForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventPropertyInspectorDidDisappear) {
+                mPlugin->PropertyInspectorDidDisappearForAction(action, context, payload, deviceID);
+            } else if (event == kESDSDKEventApplicationDidLaunch) {
+                mPlugin->ApplicationDidLaunch(payload);
+            } else if (event == kESDSDKEventApplicationDidTerminate) {
+                mPlugin->ApplicationDidTerminate(payload);
+            } else if (event == kESDSDKEventKeyDown) {
                 mPlugin->KeyDownForAction(action, context, payload, deviceID);
             }
             else if (event == kESDSDKEventKeyUp) {
@@ -301,7 +317,7 @@ void HSDConnectionManager::SendToPropertyInspector(
     mWebsocket.send(mConnectionHandle, jsonObject.dump(), websocketpp::frame::opcode::text, ec);
 }
 
-void HSDConnectionManager::SwitchToProfile(const std::string& inDeviceID, const std::string& inProfileName) {
+void HSDConnectionManager::SwitchToProfile(const std::string& inDeviceID, const std::string &inProfileName, int page) {
     if (!inDeviceID.empty()) {
         json jsonObject;
 
@@ -309,11 +325,10 @@ void HSDConnectionManager::SwitchToProfile(const std::string& inDeviceID, const 
         jsonObject[kESDSDKCommonContext] = mPluginUUID;
         jsonObject[kESDSDKCommonDevice] = inDeviceID;
 
-        if (!inProfileName.empty()) {
-            json payload;
-            payload[kESDSDKPayloadProfile] = inProfileName;
-            jsonObject[kESDSDKCommonPayload] = payload;
-        }
+        nlohmann::json payload;
+        payload[kESDSDKPayloadProfile] = inProfileName;
+        if (page >= 0) payload["page"] = page;
+        jsonObject[kESDSDKCommonPayload] = payload;
 
         websocketpp::lib::error_code ec;
         mWebsocket.send(mConnectionHandle, jsonObject.dump(), websocketpp::frame::opcode::text, ec);
@@ -355,4 +370,24 @@ void HSDConnectionManager::SetGlobalSettings(const json& inSettings) {
 
 std::shared_ptr<asio::io_context> HSDConnectionManager::GetAsioContext() const {
     return mAsioContext;
+}
+
+void HSDConnectionManager::TriggerKey(const std::string &inContext, const nlohmann::json &keyList) {
+    nlohmann::json payload;
+    payload["keyList"] = keyList;
+    nlohmann::json jsonObject;
+    jsonObject["event"] = "triggerKey";
+    jsonObject["context"] = inContext;
+    jsonObject["payload"] = payload;
+    websocketpp::lib::error_code ec;
+    mWebsocket.send(mConnectionHandle, jsonObject.dump(), websocketpp::frame::opcode::text, ec);
+}
+void HSDConnectionManager::OpenUrl(const std::string &url) {
+    nlohmann::json payload;
+    payload["url"] = url;
+    nlohmann::json jsonObject;
+    jsonObject["event"] = "openUrl";
+    jsonObject["payload"] = payload;
+    websocketpp::lib::error_code ec;
+    mWebsocket.send(mConnectionHandle, jsonObject.dump(), websocketpp::frame::opcode::text, ec);
 }

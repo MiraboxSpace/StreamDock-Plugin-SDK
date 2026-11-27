@@ -13,7 +13,8 @@ class Actions {
     // 属性检查器显示时
     static currentAction = null;
     static currentContext = null;
-    propertyInspectorDidAppear({ action, context }) {
+    propertyInspectorDidAppear(data) {
+        const { action, context } = data;
         Actions.currentAction = action;
         Actions.currentContext = context;
         this._propertyInspectorDidAppear?.(data);
@@ -62,6 +63,30 @@ window.connectElgatoStreamDeckSocket = function () {
     const uuid = arguments[1], event = arguments[2];
     window.info = JSON.parse(arguments[3]);
     window.socket = new WebSocket("ws://127.0.0.1:" + arguments[0]);
+
+
+    // Protocol commands; profile page numbers start at 1.
+    WebSocket.prototype.switchToProfile = function (device, profile = '', page) {
+        this.send(JSON.stringify({ event: 'switchToProfile', context: uuid, device, payload: { profile, ...(page === undefined ? {} : { page }) } }));
+    };
+    WebSocket.prototype.triggerKey = function (context, keyList) {
+        this.send(JSON.stringify({ event: 'triggerKey', context, payload: { keyList } }));
+    };
+    WebSocket.prototype.logMessage = function (message) {
+        this.send(JSON.stringify({ event: 'logMessage', payload: { message } }));
+    };
+    WebSocket.prototype.setGlobalSettings = function (payload) {
+        this.send(JSON.stringify({ event: 'setGlobalSettings', context: uuid, payload }));
+    };
+    WebSocket.prototype.getGlobalSettings = function () {
+        this.send(JSON.stringify({ event: 'getGlobalSettings', context: uuid }));
+    };
+    WebSocket.prototype.showOk = function (context) {
+        this.send(JSON.stringify({ event: 'showOk', context }));
+    };
+    WebSocket.prototype.showAlert = function (context) {
+        this.send(JSON.stringify({ event: 'showAlert', context }));
+    };
 
     // 打开网页
     WebSocket.prototype.openUrl = function (url) {

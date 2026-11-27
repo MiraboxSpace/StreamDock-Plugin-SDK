@@ -17,7 +17,7 @@ void Plugin::KeyDownForAction(const QString &inAction,
                               const QJsonObject &inPayload,
                               const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for keydown - %1 %2")
@@ -33,7 +33,7 @@ void Plugin::KeyUpForAction(const QString &inAction,
                             const QJsonObject &inPayload,
                             const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for keyup - %1 %2")
@@ -49,7 +49,7 @@ void Plugin::DialDownForAction(const QString &inAction,
                                const QJsonObject &inPayload,
                                const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for dialPress - %1 %2")
@@ -65,7 +65,7 @@ void Plugin::DialUpForAction(const QString &inAction,
                              const QJsonObject &inPayload,
                              const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for dialPress - %1 %2")
@@ -81,7 +81,7 @@ void Plugin::DialRotateForAction(const QString &inAction,
                                  const QJsonObject &inPayload,
                                  const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for dialRotate - %1 %2")
@@ -106,7 +106,7 @@ void Plugin::WillAppearForAction(const QString &inAction,
                                  const QJsonObject &inPayload,
                                  const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for WillAppear - %1 %2")
@@ -122,7 +122,7 @@ void Plugin::WillDisappearForAction(const QString &inAction,
                                     const QJsonObject &inPayload,
                                     const QString &inDeviceID)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = FindAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for WillDisappear - %1 %2")
@@ -131,7 +131,10 @@ void Plugin::WillDisappearForAction(const QString &inAction,
         return;
     }
     action->WillDisappear(inPayload);
-    RemoveAction(inAction, inContext);
+    if (!action->KeepAliveWhenHidden()) {
+        mEventActions.erase(inContext);
+        RemoveAction(inAction, inContext);
+    }
 }
 
 void Plugin::SendToPlugin(const QString &inAction,
@@ -139,7 +142,7 @@ void Plugin::SendToPlugin(const QString &inAction,
                           const QJsonObject &inPayload,
                           const QString &inDevice)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("Received plugin request for unknown action %1 %2")
@@ -155,7 +158,7 @@ void Plugin::DidReceiveSettings(const QString &inAction,
                                 const QJsonObject &inPayload,
                                 const QString &inDevice)
 {
-    auto action = GetOrCreateAction(inAction, inContext);
+    auto action = EventAction(inAction, inContext);
     if (!action)
     {
         Logger::LogToFile(QString("No action for DidReceiveSettings: %1 %2")
@@ -164,4 +167,43 @@ void Plugin::DidReceiveSettings(const QString &inAction,
         return;
     }
     action->DidReceiveSettings(inPayload);
+}
+
+void Plugin::TouchTapForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TouchTap(inPayload);
+}
+void Plugin::TouchEventForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TouchEvent(inPayload);
+}
+void Plugin::DeleteActionForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = FindAction(inAction, inContext);
+    if (action) action->DeleteAction(inPayload);
+    mEventActions.erase(inContext);
+    RemoveAction(inAction, inContext);
+}
+void Plugin::TitleParametersDidChangeForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->TitleParametersDidChange(inPayload);
+}
+void Plugin::PropertyInspectorDidAppearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->PropertyInspectorDidAppear(inPayload);
+}
+void Plugin::PropertyInspectorDidDisappearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID)
+{
+    auto action = EventAction(inAction, inContext);
+    if (action) action->PropertyInspectorDidDisappear(inPayload);
+}
+
+Action *Plugin::EventAction(const QString &action, const QString &context) {
+    auto instance = GetOrCreateAction(action, context);
+    if (instance) mEventActions[context] = instance;
+    return instance;
 }

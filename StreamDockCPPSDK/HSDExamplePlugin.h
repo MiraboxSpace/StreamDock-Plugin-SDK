@@ -9,6 +9,8 @@
 class HSDExamplePlugin : public HSDPlugin
 {
 public:
+    bool RemoveAction(const std::string &action, const std::string &context) override;
+    std::shared_ptr<HSDAction> FindAction(const std::string &action, const std::string &context) override;
     using HSDPlugin::HSDPlugin;
 
     virtual std::shared_ptr<HSDAction> GetOrCreateAction(const std::string& action, const std::string& context) override;

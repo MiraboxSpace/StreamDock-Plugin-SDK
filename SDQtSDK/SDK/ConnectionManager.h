@@ -2,6 +2,7 @@
 #define CONNECTIONMANAGER_H
 
 #include <QJsonObject>
+#include <QJsonArray>
 #include <QObject>
 #include <QString>
 #include <QWebSocket>
@@ -41,7 +42,9 @@ public:
                                  const QString &inContext,
                                  const QJsonObject &inPayload);
     void SwitchToProfile(const QString &inDeviceID,
-                         const QString &inProfileName);
+                         const QString &inProfileName, int page = -1);
+    void TriggerKey(const QString &inContext, const QJsonArray &keyList);
+    void OpenUrl(const QString &url);
     void LogMessage(const QString &inMessage);
 
     // Run

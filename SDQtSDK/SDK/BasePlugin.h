@@ -14,6 +14,15 @@ public:
 
     void SetConnectionManager(ConnectionManager *inConnectionManager);
 
+    virtual void TouchTapForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void TouchEventForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void DeleteActionForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void TitleParametersDidChangeForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void PropertyInspectorDidAppearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void PropertyInspectorDidDisappearForAction(const QString &inAction, const QString &inContext, const QJsonObject &inPayload, const QString &inDeviceID);
+    virtual void ApplicationDidLaunch(const QJsonObject &inPayload);
+    virtual void ApplicationDidTerminate(const QJsonObject &inPayload);
+
     virtual void DidReceiveGlobalSettings(const QJsonObject &inPayload);
 
     virtual void DidReceiveSettings(const QString &inAction,

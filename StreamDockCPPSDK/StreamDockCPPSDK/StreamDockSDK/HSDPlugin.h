@@ -1,3 +1,4 @@
+#include <map>
 /* Copyright (c) 2018, Corsair Memory, Inc.
  * Copyright (c) 2020-present, Fred Emmott
  *
@@ -28,9 +29,25 @@ protected:
   virtual std::shared_ptr<HSDAction>
   GetOrCreateAction(const std::string &action, const std::string &context) = 0;
 
+    // Lookup without construction; override together with GetOrCreateAction.
+    virtual std::shared_ptr<HSDAction> FindAction(const std::string &action, const std::string &context) {
+        auto it = mEventActions.find(context);
+        return it == mEventActions.end() ? nullptr : it->second;
+    }
+    std::shared_ptr<HSDAction> EventAction(const std::string &action, const std::string &context);
+    std::map<std::string, std::shared_ptr<HSDAction>> mEventActions;
+    virtual bool RemoveAction(const std::string &action, const std::string &context) { return false; }
+
 public:
   HSDPlugin();
   virtual ~HSDPlugin();
+
+    void TouchTapForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
+    void TouchEventForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
+    void DeleteActionForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
+    void TitleParametersDidChangeForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
+    void PropertyInspectorDidAppearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
+    void PropertyInspectorDidDisappearForAction(const std::string &inAction, const std::string &inContext, const nlohmann::json &inPayload, const std::string &inDeviceID) override;
 
   virtual void KeyDownForAction(
       const std::string &inAction,

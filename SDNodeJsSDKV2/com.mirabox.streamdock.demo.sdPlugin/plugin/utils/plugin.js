@@ -66,6 +66,18 @@ class Plugins {
             context: process.argv[5],
         }));
     }
+
+    // Protocol commands; profile page numbers start at 1.
+    switchToProfile(device, profile = '', page) {
+        this.ws.send(JSON.stringify({ event: 'switchToProfile', context: process.argv[5], device, payload: { profile, ...(page === undefined ? {} : { page }) } }));
+    }
+    triggerKey(context, keyList) {
+        this.ws.send(JSON.stringify({ event: 'triggerKey', context, payload: { keyList } }));
+    }
+    logMessage(message) {
+        this.ws.send(JSON.stringify({ event: 'logMessage', payload: { message } }));
+    }
+
     // 设置标题
     setTitle(context, str, row = 0, num = 6) {
         let newStr = null;

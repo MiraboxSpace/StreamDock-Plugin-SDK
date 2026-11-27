@@ -1,7 +1,26 @@
 import json
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 class Action:
+    # Opt in for alarms/background work that must survive page/profile switches.
+    keep_alive_when_hidden = False
+
+    def on_touch_tap(self, payload: Dict):
+        """Complete tap: tapPos, hold, controller, width and height."""
+        pass
+
+    def on_touch_event(self, payload: Dict):
+        """phase = down/move/up/cancel; cancel only discards transient state."""
+        pass
+
+    def on_delete_action(self, data: Dict):
+        """User deleted this instance; cancel persistent work here."""
+        pass
+
+    def trigger_key(self, key_list: List[Dict]):
+        self._server.send(json.dumps({'event': 'triggerKey', 'context': self.context,
+                                      'payload': {'keyList': key_list}}))
+
     def __init__(self, action: str, context: str, settings: Dict, plugin):
         self.action = action
         self.context = context

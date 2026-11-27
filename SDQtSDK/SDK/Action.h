@@ -3,6 +3,7 @@
 
 #include "SDKDefines.h"
 #include <QJsonObject>
+#include <QJsonArray>
 #include <QString>
 
 class ConnectionManager;
@@ -22,6 +23,16 @@ protected:
     ConnectionManager *GetConnectionManager() const;
 
 public:
+    virtual void TouchTap(const QJsonObject &payload);
+    virtual void TouchEvent(const QJsonObject &payload);
+    virtual void DeleteAction(const QJsonObject &payload);
+    virtual void TitleParametersDidChange(const QJsonObject &payload);
+    virtual void PropertyInspectorDidAppear(const QJsonObject &payload);
+    virtual void PropertyInspectorDidDisappear(const QJsonObject &payload);
+
+    // Override for background work; release it in DeleteAction.
+    virtual bool KeepAliveWhenHidden() const { return false; }
+
     // Events Received
     virtual void DidReceiveSettings(const QJsonObject &payload);
     virtual void KeyDown(const QJsonObject &payload);
@@ -36,6 +47,8 @@ public:
 
 protected:
     // Events Sent
+    void TriggerKey(const QJsonArray &keyList);
+    void OpenUrl(const QString &url);
     void SetState(int state);
     void SetTitle(const QString &title, mSDKTarget = mSDKTarget_HardwareAndSoftware, int state = -1);
     void SetImage(const QString &inBase64ImageString, mSDKTarget = mSDKTarget_HardwareAndSoftware, int state = -1);

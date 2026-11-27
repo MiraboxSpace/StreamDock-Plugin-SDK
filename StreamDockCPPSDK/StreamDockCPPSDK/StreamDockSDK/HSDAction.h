@@ -35,6 +35,13 @@ class HSDAction {
   std::string GetAction() const;
   std::string GetContext() const;
 
+    virtual void TouchTap(const nlohmann::json &payload);
+    virtual void TouchEvent(const nlohmann::json &payload);
+    virtual void DeleteAction(const nlohmann::json &payload);
+    virtual void TitleParametersDidChange(const nlohmann::json &payload);
+    virtual void PropertyInspectorDidAppear(const nlohmann::json &payload);
+    virtual void PropertyInspectorDidDisappear(const nlohmann::json &payload);
+
   virtual void DidReceiveSettings(const nlohmann::json& payload);
   virtual void KeyDown(const nlohmann::json& payload);
   virtual void KeyUp(const nlohmann::json& payload);
@@ -50,6 +57,8 @@ class HSDAction {
   HSDConnectionManager* GetHSDConnection() const;
 
   // Convenience wrappers for GetHSDConnection()->foo()
+    void TriggerKey(const nlohmann::json &keyList);
+    void OpenUrl(const std::string &url);
   void SetState(int state);
   void SetTitle(const std::string& title, ESDSDKTarget = kESDSDKTarget_HardwareAndSoftware, int state = -1);
   void SetImage(const std::string& inBase64ImageString, ESDSDKTarget = kESDSDKTarget_HardwareAndSoftware, int state = -1);

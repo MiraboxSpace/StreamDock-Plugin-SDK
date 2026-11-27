@@ -49,6 +49,15 @@ export const usePluginStore = defineStore('pluginStore', () => {
     server.send(JSON.stringify({ event: 'getGlobalSettings', context: window.argv[1] }));
   }
 
+  // Profile names must match manifest Profiles[].Name; pages start at 1.
+  const switchToProfile = (device: string, profile = '', page?: number) => {
+    server.send(JSON.stringify({ event: 'switchToProfile', context: window.argv[1], device,
+      payload: { profile, ...(page === undefined ? {} : { page }) } }));
+  };
+  const logMessage = (message: string) => {
+    server.send(JSON.stringify({ event: 'logMessage', payload: { message } }));
+  };
+
   // 设置背景
   const setBackground = (img: string, device: string, clearIcon = true) => {
     server.send(JSON.stringify({
@@ -121,6 +130,12 @@ export const usePluginStore = defineStore('pluginStore', () => {
     sendToPropertyInspector = (payload: any) => {
       server.send(JSON.stringify({ event: 'sendToPropertyInspector', action: this.action, context: this.context, payload }));
     };
+
+    triggerKey = (keyList: { key: number; downUp: 0 | 1 }[]) => {
+      server.send(JSON.stringify({ event: 'triggerKey', context: this.context, payload: { keyList } }));
+    };
+    showOk = () => server.send(JSON.stringify({ event: 'showOk', context: this.context }));
+    showAlert = () => server.send(JSON.stringify({ event: 'showAlert', context: this.context }));
 
     // 切换状态
     setState = (state: number) => {
@@ -218,6 +233,8 @@ export const usePluginStore = defineStore('pluginStore', () => {
     setBackground,
     stopBackground,
     getUserInfo,
+    switchToProfile,
+    logMessage,
     ActionArr: Actions.list,
     getAction: Actions.getAction,
     addAction: Actions.addAction,
@@ -253,7 +270,8 @@ export const useWatchEvent = <T extends keyof MessageTypes>(type: T, MessageEven
         } else if (plugin.message.event === 'sendUserInfo') {
           plugin.userInfo = plugin.message.payload;
         }
-      }
+      },
+      { flush: 'sync' }
     );
   }
   const Events: StreamDock.ActionMessage = {
@@ -281,6 +299,8 @@ export const useWatchEvent = <T extends keyof MessageTypes>(type: T, MessageEven
       const data = JSON.parse(JSON.stringify(plugin.message));
       Events[plugin.message.event]?.(data);
       MessageEvents[plugin.message.event]?.(data);
-    }
+      if (plugin.message.event === 'deleteAction') plugin.delAction(data.context);
+    },
+    { flush: 'sync' }
   );
 };

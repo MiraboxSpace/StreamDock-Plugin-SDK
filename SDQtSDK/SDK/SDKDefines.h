@@ -32,6 +32,9 @@
 #define mSDKEventDialDown "dialDown"
 #define mSDKEventDialUp "dialUp"
 #define mSDKEventTouchTap "touchTap"
+#define mSDKEventTouchEvent "touchEvent"
+#define mSDKEventDeleteAction "deleteAction"
+#define mSDKEventTriggerKey "triggerKey"
 
 //
 // Functions

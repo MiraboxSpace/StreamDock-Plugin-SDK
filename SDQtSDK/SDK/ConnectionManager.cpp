@@ -146,18 +146,17 @@ void ConnectionManager::SendToPropertyInspector(const QString &inAction,
     SendMessage(QJsonDocument(jsonObject).toJson(QJsonDocument::Compact));
 }
 
-void ConnectionManager::SwitchToProfile(const QString &inDeviceID, const QString &inProfileName)
+void ConnectionManager::SwitchToProfile(const QString &inDeviceID, const QString &inProfileName, int page)
 {
     if (!inDeviceID.isEmpty()) {
         QJsonObject jsonObject;
         jsonObject[mSDKCommonEvent] = mSDKEventSwitchToProfile;
         jsonObject[mSDKCommonContext] = mPluginUUID;
         jsonObject[mSDKCommonDevice] = inDeviceID;
-        if (!inProfileName.isEmpty()) {
-            QJsonObject payload;
-            payload[mSDKPayloadProfile] = inProfileName;
-            jsonObject[mSDKCommonPayload] = payload;
-        }
+        QJsonObject payload;
+        payload[mSDKPayloadProfile] = inProfileName;
+        if (page >= 0) payload["page"] = page;
+        jsonObject[mSDKCommonPayload] = payload;
         SendMessage(QJsonDocument(jsonObject).toJson(QJsonDocument::Compact));
     }
 }
@@ -209,7 +208,23 @@ void ConnectionManager::OnMessage(const QString &message)
         QString action = receivedJson.value(mSDKCommonAction).toString();
         QString deviceID = receivedJson.value(mSDKCommonDevice).toString();
         QJsonObject payload = receivedJson.value(mSDKCommonPayload).toObject();
-        if (event == mSDKEventKeyDown) {
+        if (event == mSDKEventTouchTap) {
+                mPlugin->TouchTapForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventTouchEvent) {
+                mPlugin->TouchEventForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventDeleteAction) {
+                mPlugin->DeleteActionForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventTitleParametersDidChange) {
+                mPlugin->TitleParametersDidChangeForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventPropertyInspectorDidAppear) {
+                mPlugin->PropertyInspectorDidAppearForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventPropertyInspectorDidDisappear) {
+                mPlugin->PropertyInspectorDidDisappearForAction(action, context, payload, deviceID);
+            } else if (event == mSDKEventApplicationDidLaunch) {
+                mPlugin->ApplicationDidLaunch(payload);
+            } else if (event == mSDKEventApplicationDidTerminate) {
+                mPlugin->ApplicationDidTerminate(payload);
+            } else if (event == mSDKEventKeyDown) {
             mPlugin->KeyDownForAction(action, context, payload, deviceID);
         } else if (event == mSDKEventKeyUp) {
             mPlugin->KeyUpForAction(action, context, payload, deviceID);
@@ -232,7 +247,7 @@ void ConnectionManager::OnMessage(const QString &message)
             mPlugin->SystemDidWakeUp();
         } else if (event == mSDKEventDialDown) {
             mPlugin->DialDownForAction(action, context, payload, deviceID);
-        } else if (event == mSDKEventDialDown) {
+        } else if (event == mSDKEventDialUp) {
             mPlugin->DialUpForAction(action, context, payload, deviceID);
         } else if (event == mSDKEventDialRotate) {
             mPlugin->DialRotateForAction(action, context, payload, deviceID);
@@ -246,4 +261,22 @@ void ConnectionManager::SendMessage(const QString &message)
     if (mWebsocketClient) {
         mWebsocketClient->sendTextMessage(message);
     }
+}
+
+void ConnectionManager::TriggerKey(const QString &inContext, const QJsonArray &keyList) {
+    QJsonObject payload;
+    payload["keyList"] = keyList;
+    QJsonObject jsonObject;
+    jsonObject["event"] = "triggerKey";
+    jsonObject["context"] = inContext;
+    jsonObject["payload"] = payload;
+    SendMessage(QJsonDocument(jsonObject).toJson(QJsonDocument::Compact));
+}
+void ConnectionManager::OpenUrl(const QString &url) {
+    QJsonObject payload;
+    payload["url"] = url;
+    QJsonObject jsonObject;
+    jsonObject["event"] = "openUrl";
+    jsonObject["payload"] = payload;
+    SendMessage(QJsonDocument(jsonObject).toJson(QJsonDocument::Compact));
 }

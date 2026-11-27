@@ -81,3 +81,17 @@ void HSDAction::SetSettings(const nlohmann::json& inSettings) {
 void HSDAction::SendToPropertyInspector(const nlohmann::json& payload) {
   GetHSDConnection()->SendToPropertyInspector(mAction, mContext, payload);
 }
+
+void HSDAction::TouchTap(const nlohmann::json &payload) { }
+void HSDAction::TouchEvent(const nlohmann::json &payload) { }
+void HSDAction::DeleteAction(const nlohmann::json &payload) { }
+void HSDAction::TitleParametersDidChange(const nlohmann::json &payload) { }
+void HSDAction::PropertyInspectorDidAppear(const nlohmann::json &payload) { }
+void HSDAction::PropertyInspectorDidDisappear(const nlohmann::json &payload) { }
+
+void HSDAction::TriggerKey(const nlohmann::json &keyList) {
+    GetHSDConnection()->TriggerKey(mContext, keyList);
+}
+void HSDAction::OpenUrl(const std::string &url) {
+    GetHSDConnection()->OpenUrl(url);
+}

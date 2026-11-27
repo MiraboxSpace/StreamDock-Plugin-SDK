@@ -47,6 +47,9 @@ LICENSE file.
 #define kESDSDKEventDialDown "dialDown"
 #define kESDSDKEventDialUp "dialUp"
 #define kESDSDKEventTouchTap "touchTap"
+#define kESDSDKEventTouchEvent "touchEvent"
+#define kESDSDKEventDeleteAction "deleteAction"
+#define kESDSDKEventTriggerKey "triggerKey"
 
 //
 // Functions

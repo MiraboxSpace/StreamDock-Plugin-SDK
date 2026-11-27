@@ -26,6 +26,16 @@ export default function (name: string) {
     willAppear({ context }) {
       console.log('创建:', context);
     },
+    dialUp({ context, payload }) { },
+    touchTap({ context, payload }) {
+      // Complete tap: tapPos / hold; use width / height for coordinate mapping.
+    },
+    touchEvent({ context, payload }) {
+      // down / move / up / cancel; cancel must not activate a click.
+    },
+    deleteAction({ context }) {
+      // Cancel persistent tasks by context, even if this action is already hidden.
+    },
     keyUp({ context }) {
     }
   });

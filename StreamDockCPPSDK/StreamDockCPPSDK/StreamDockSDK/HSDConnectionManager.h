@@ -62,7 +62,9 @@ class HSDConnectionManager {
     const nlohmann::json& inPayload);
   void SwitchToProfile(
     const std::string& inDeviceID,
-    const std::string& inProfileName);
+    const std::string &inProfileName, int page = -1);
+    void TriggerKey(const std::string &inContext, const nlohmann::json &keyList);
+    void OpenUrl(const std::string &url);
   void LogMessage(const std::string& inMessage);
 
   std::shared_ptr<asio::io_context> GetAsioContext() const;

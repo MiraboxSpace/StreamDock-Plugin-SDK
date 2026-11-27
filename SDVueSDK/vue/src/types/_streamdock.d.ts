@@ -111,21 +111,47 @@ declare namespace EventPayload {
       isInMultiAction: boolean;
     };
   };
-  type keyDownUpTouchTap = {
+  type touchTap = {
     action: string;
-    event: string;
+    event: 'touchTap';
     context: string;
     device: string;
     payload: {
-      settings: {};
-      coordinates: {
-        column: number;
-        row: number;
-      };
-      state: number;
-      userDesiredState: number;
-      isInMultiAction: boolean;
+      controller: 'Card' | 'Knob';
+      settings: Record<string, unknown>;
+      coordinates?: { column: number; row: number };
+      tapPos: [number, number];
+      hold: boolean;
+      width: number;
+      height: number;
+      resources?: Record<string, unknown>;
     };
+  };
+  /** Compatibility alias; touchTap is not a keyDown/keyUp payload. */
+  type keyDownUpTouchTap = touchTap;
+  type touchEvent = {
+    action: string;
+    event: 'touchEvent';
+    context: string;
+    device: string;
+    payload: {
+      controller: string;
+      settings: Record<string, unknown>;
+      phase: 'down' | 'move' | 'up' | 'cancel';
+      touchId: number;
+      position: [number, number];
+      startPosition: [number, number];
+      delta: [number, number];
+      width: number;
+      height: number;
+    };
+  };
+  type deleteAction = {
+    action: string;
+    event: 'deleteAction';
+    context: string;
+    device: string;
+    payload?: unknown;
   };
   // 创建|注销 操作
   type willAppearDisappear = {
@@ -299,6 +325,7 @@ declare namespace StreamDock {
     didReceiveSettings?(this: ActionMessage, data: EventPayload.didReceiveSettings): void;
     keyDown?(this: ActionMessage, data: EventPayload.keyDownUp): void;
     keyUp?(this: ActionMessage, data: EventPayload.keyDownUp): void;
+    touchEvent?(this: ActionMessage, data: EventPayload.touchEvent): void;
     touchTap?(this: ActionMessage, data: EventPayload.keyDownUpTouchTap): void;
     willAppear?(this: ActionMessage, data: EventPayload.willAppearDisappear): void;
     willDisappear?(this: ActionMessage, data: EventPayload.willAppearDisappear): void;
@@ -307,9 +334,9 @@ declare namespace StreamDock {
     propertyInspectorDidDisappear?(this: ActionMessage, data: EventPayload.propertyInspectorDidAppearDisappear): void;
     sendToPlugin?(this: ActionMessage, data: EventPayload.sendToPlugin): void;
     dialDown?(this: ActionMessage, data: EventPayload.KnobUPDown): void;
-    keyUp?(this: ActionMessage, data: EventPayload.KnobUPDown): void;
+    dialUp?(this: ActionMessage, data: EventPayload.KnobUPDown): void;
     dialRotate?(this: ActionMessage, data: EventPayload.dialRotate): void;
-    deletesAction?(this: PluginMessage, data: EventPayload.willAppearDisappear): void;
+    deleteAction?(this: ActionMessage, data: EventPayload.deleteAction): void;
     unRegistrationScreenSaverEvent?(this: PluginMessage, data: EventPayload.unRegistrationScreenSaverEvent): void;
   };
 

@@ -38,3 +38,13 @@ void HSDExamplePlugin::DidReceiveGlobalSettings(const nlohmann::json& payload)
         // action->setApplicationConnection(myConnectionObject);
     }
 }
+
+std::shared_ptr<HSDAction> HSDExamplePlugin::FindAction(const std::string &action, const std::string &context) {
+    auto it = mActions.find(context);
+    return it != mActions.end() && it->second->GetAction() == action ? it->second : nullptr;
+}
+
+bool HSDExamplePlugin::RemoveAction(const std::string &action, const std::string &context) {
+    if (!FindAction(action, context)) return false;
+    return mActions.erase(context) != 0;
+}
